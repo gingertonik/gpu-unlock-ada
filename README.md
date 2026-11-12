@@ -6,6 +6,10 @@ build input now resolves from Arch's permanent package archive. Upstream pins
 `nvidia-utils-610.43.03-1-x86_64_v3.pkg.tar.zst` from the CachyOS archive
 pool, which has rotated past that version, so `make install` 404s for
 everybody ([upstream issue #145](https://github.com/JustAResearcher/gpu-unlock-ada/issues/145)).
+The repin is submitted upstream as
+[pull request #151](https://github.com/JustAResearcher/gpu-unlock-ada/pull/151);
+the measured result below is reported in
+[upstream issue #150](https://github.com/JustAResearcher/gpu-unlock-ada/issues/150).
 The replacement package carries the pinned `gsp_ga10x.bin` byte-identical;
 this fork's build produces bit-for-bit the upstream-pinned firmware payloads,
 verified post-build against upstream's published payload hashes.
@@ -76,8 +80,8 @@ for real cuBLAS GEMM (12-34%) are the expected application envelope.
 ## Install (Arch / CachyOS / EndeavourOS)
 
 ```sh
-git clone https://github.com/gingertonik/gpu-unlock-ada-4080.git
-cd gpu-unlock-ada-4080
+git clone https://github.com/gingertonik/gpu-unlock-ada.git
+cd gpu-unlock-ada
 ./install.sh
 ```
 
