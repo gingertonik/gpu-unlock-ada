@@ -1,0 +1,21 @@
+PREFILL BENCH
+endpoint : http://127.0.0.1:8081/v1
+model    : swift-1.5-iq3_s
+time     : 2026-11-12 00:10 UTC
+
+ target    actual   prefill (s)   prefill (tok/s)
+ ------   ------   -----------   ---------------
+ (starred rate = engine prompt_ms over full prompt; prefill(s) column is
+  client TTFT and runs low on Strata, which streams tokens mid-prefill)
+     2K     1990         0.006            978*
+           engine: cache 0, cold-read 1990 tok in 2034.0 ms (978 tok/s)
+    16K    15941         0.009           2939*
+           engine: cache 0, cold-read 15941 tok in 5423.4 ms (2939 tok/s)
+    32K    31811         0.014           3490*
+           engine: cache 0, cold-read 31811 tok in 9115.7 ms (3490 tok/s)
+    64K    62724         0.020           3434*
+           engine: cache 0, cold-read 62724 tok in 18267.0 ms (3434 tok/s)
+   128K   128708         0.037           3325*
+           engine: cache 0, cold-read 128708 tok in 38711.7 ms (3325 tok/s)
+
+done: 5 depths, 2026-11-12 00:11 UTC
